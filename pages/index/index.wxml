@@ -1,0 +1,16 @@
+<!--pages/index/index.wxml-->
+<view class="container">
+  <view class="header">
+    <text class="title">欢迎使用打卡助手</text>
+  </view>
+  
+  <view class="main">
+    <button class="punch-btn" type="primary" bindtap="handlePunchIn" loading="{{loading}}">
+      {{loading ? '定位中...' : '立即打卡'}}
+    </button>
+  </view>
+
+  <view class="footer" wx:if="{{lastRecord}}">
+    <text class="last-tip">上次打卡：{{lastRecord.time}}</text>
+  </view>
+</view>

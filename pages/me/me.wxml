@@ -1,0 +1,24 @@
+<!--pages/me/me.wxml-->
+<view class="container">
+  <view class="header">
+    <text class="title">历史记录</text>
+    <text class="count" wx:if="{{records.length > 0}}">共 {{records.length}} 次</text>
+  </view>
+
+  <scroll-view class="record-list" scroll-y="true">
+    <view class="record-item" wx:for="{{records}}" wx:key="id">
+      <view class="item-header">
+        <text class="item-time">{{item.time}}</text>
+        <view class="item-badge">已打卡</view>
+      </view>
+      <view class="item-content">
+        <text class="item-loc">经度: {{item.longitude}}</text>
+        <text class="item-loc">纬度: {{item.latitude}}</text>
+      </view>
+    </view>
+
+    <view class="empty-state" wx:if="{{records.length === 0}}">
+      <text class="empty-tip">暂无记录，快去首页打卡吧！</text>
+    </view>
+  </scroll-view>
+</view>

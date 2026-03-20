@@ -1,0 +1,81 @@
+/* pages/me/me.wxss */
+.container {
+  display: flex;
+  flex-direction: column;
+  padding: 30rpx;
+  background-color: #f7f7f7;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 30rpx;
+}
+
+.title {
+  font-size: 36rpx;
+  font-weight: bold;
+}
+
+.count {
+  font-size: 24rpx;
+  color: #888;
+}
+
+.record-list {
+  flex: 1;
+}
+
+.record-item {
+  background-color: #fff;
+  border-radius: 12rpx;
+  padding: 30rpx;
+  margin-bottom: 20rpx;
+  box-shadow: 0 4rpx 12rpx rgba(0, 0, 0, 0.05);
+}
+
+.item-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20rpx;
+  border-bottom: 1rpx solid #eee;
+  padding-bottom: 15rpx;
+}
+
+.item-time {
+  font-size: 30rpx;
+  color: #333;
+  font-weight: 500;
+}
+
+.item-badge {
+  font-size: 20rpx;
+  background-color: #07c160;
+  color: #fff;
+  padding: 4rpx 12rpx;
+  border-radius: 4rpx;
+}
+
+.item-content {
+  display: flex;
+  flex-direction: column;
+}
+
+.item-loc {
+  font-size: 26rpx;
+  color: #666;
+  margin-top: 10rpx;
+}
+
+.empty-state {
+  display: flex;
+  justify-content: center;
+  padding-top: 200rpx;
+}
+
+.empty-tip {
+  color: #999;
+  font-size: 28rpx;
+}
