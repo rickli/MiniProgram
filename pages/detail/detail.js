@@ -9,7 +9,9 @@ Page({
     moods: ['😊', '😢', '💼', '🏖️', '🔥'],
     selectedMood: '😊',
     note: '',
-    photos: []
+    photos: [],
+    presetTags: ['工作', '生活', '旅行'],
+    selectedTags: []
   },
   onLoad(options) {
     const { time, lat, lon } = options
@@ -52,8 +54,33 @@ Page({
       urls: this.data.photos
     })
   },
+  toggleTag(e) {
+    const { tag } = e.currentTarget.dataset
+    let { selectedTags } = this.data
+    const index = selectedTags.indexOf(tag)
+    if (index > -1) {
+      selectedTags.splice(index, 1)
+    } else {
+      selectedTags.push(tag)
+    }
+    this.setData({ selectedTags })
+  },
   handleSave() {
-    wx.showToast({ title: '已保存', icon: 'success' })
+    const { record, selectedMood, note, photos, selectedTags } = this.data
+    const newRecord = {
+      ...record,
+      id: Date.now(),
+      mood: selectedMood,
+      note,
+      photos,
+      tags: selectedTags
+    }
+
+    const records = wx.getStorageSync('PUNCH_RECORDS') || []
+    records.unshift(newRecord)
+    wx.setStorageSync('PUNCH_RECORDS', records)
+
+    wx.showToast({ title: '保存成功', icon: 'success' })
     setTimeout(() => {
       wx.switchTab({ url: '/pages/me/me' })
     }, 1500)
