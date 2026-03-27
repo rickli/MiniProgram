@@ -5,7 +5,9 @@ Page({
       address: '',
       latitude: '',
       longitude: ''
-    }
+    },
+    moods: ['😊', '😢', '💼', '🏖️', '🔥'],
+    selectedMood: '😊'
   },
   onLoad(options) {
     const { time, lat, lon } = options
@@ -13,6 +15,11 @@ Page({
       'record.time': time,
       'record.latitude': lat,
       'record.longitude': lon
+    })
+  },
+  selectMood(e) {
+    this.setData({
+      selectedMood: e.currentTarget.dataset.mood
     })
   },
   handleSave() {

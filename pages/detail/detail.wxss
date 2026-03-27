@@ -36,3 +36,27 @@
 .save-btn {
   width: 100%;
 }
+
+.section-title {
+  font-size: 28rpx;
+  color: #666;
+  margin-bottom: 20rpx;
+}
+.mood-list {
+  display: flex;
+  justify-content: space-between;
+}
+.mood-item {
+  width: 80rpx;
+  height: 80rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 48rpx;
+  border: 4rpx solid transparent;
+  border-radius: 50%; /* 确保是圆形 */
+  transition: all 0.3s;
+}
+.mood-item.active {
+  border-color: #07c160;
+}
