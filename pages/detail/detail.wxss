@@ -1,99 +1,131 @@
-.container {
-  padding: 30rpx;
-  background: #f8f8f8;
+/* 根容器背景 */
+.page-bg {
   min-height: 100vh;
-}
-
-.section {
-  background: #fff;
+  background-color: #f4f5f7;
   padding: 30rpx;
-  margin-bottom: 20rpx;
-  border-radius: 16rpx;
+  box-sizing: border-box;
 }
 
-.info-item {
+/* 白色大卡片 */
+.diary-card {
+  background-color: #ffffff;
+  border-radius: 28rpx;
+  overflow: hidden;
+  box-shadow: 0 15rpx 45rpx rgba(0,0,0,0.06);
+}
+
+/* 渐变色顶栏 */
+.diary-header {
+  height: 200rpx;
+  background: linear-gradient(135deg, #07c160 0%, #00b0ff 100%);
   display: flex;
   align-items: center;
-  margin-bottom: 10rpx;
+  padding: 0 40rpx;
+  color: #fff;
 }
 
-.label {
-  font-size: 28rpx;
-  color: #666;
-  width: 120rpx;
+.header-content {
+  display: flex;
+  flex-direction: column;
 }
 
-.value {
-  font-size: 28rpx;
-  color: #333;
-  flex: 1;
+.header-time {
+  font-size: 36rpx;
+  font-weight: 600;
+  margin-bottom: 12rpx;
 }
 
-.footer {
-  margin-top: 40rpx;
+.header-loc {
+  font-size: 26rpx;
+  font-weight: 300;
+  opacity: 0.9;
 }
 
-.save-btn {
-  width: 100%;
+/* 主体内容区 */
+.card-body {
+  padding: 40rpx 30rpx;
+}
+
+/* 段落容器 */
+.section {
+  margin-bottom: 40rpx;
 }
 
 .section-title {
-  font-size: 28rpx;
-  color: #666;
-  margin-bottom: 20rpx;
+  font-size: 22rpx;
+  color: #9ea4af;
+  margin-bottom: 24rpx;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 2rpx;
 }
-.mood-list {
+
+/* 心情选择 */
+.mood-selector {
   display: flex;
   justify-content: space-between;
+  align-items: center;
 }
-.mood-item {
-  width: 80rpx;
-  height: 80rpx;
+.mood-opt {
+  width: 88rpx;
+  height: 88rpx;
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 48rpx;
-  border: 4rpx solid transparent;
-  border-radius: 50%; /* 确保是圆形 */
-  transition: all 0.3s;
+  font-size: 44rpx;
+  background: #f1f3f5;
+  border-radius: 28rpx;
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
 }
-.mood-item.active {
-  border-color: #07c160;
+.mood-opt.active {
+  background: #07c160;
+  transform: scale(1.15) translateY(-6rpx);
+  box-shadow: 0 10rpx 25rpx rgba(7, 193, 96, 0.3);
+  z-index: 2;
 }
 
-.note-input {
+/* 纸感手记 */
+.diary-input {
   width: 100%;
-  height: 200rpx;
+  min-height: 240rpx;
+  line-height: 1.8;
+  padding: 0 20rpx 0 30rpx;
+  border-left: 4rpx solid #efefef;
+  border-top: none;
+  border-right: none;
+  border-bottom: none;
   font-size: 28rpx;
+  color: #333;
+  box-sizing: border-box;
 }
-.photo-list {
+
+.input-placeholder {
+  color: #9ea4af;
+  font-style: italic;
+}
+
+/* 拍立得影集 */
+.polaroid-gallery {
   display: flex;
   flex-wrap: wrap;
   gap: 20rpx;
 }
-.photo-item, .upload-btn {
-  width: 160rpx;
-  height: 160rpx;
-  border-radius: 8rpx;
-  background: #f0f0f0;
-}
-.upload-btn {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 60rpx;
-  color: #999;
-  border: 1rpx dashed #ccc;
-}
-.photo-item {
+
+.polaroid-item {
+  width: 180rpx;
+  background: #ffffff;
+  padding: 10rpx 10rpx 40rpx 10rpx;
+  box-shadow: 0 4rpx 15rpx rgba(0,0,0,0.08);
   position: relative;
 }
-.photo-item image {
-  width: 100%;
-  height: 100%;
-  border-radius: 8rpx;
+
+.polaroid-item image {
+  width: 160rpx;
+  height: 160rpx;
+  display: block;
 }
-.delete-btn {
+
+.delete-tag {
   position: absolute;
   top: -10rpx;
   right: -10rpx;
@@ -106,21 +138,55 @@
   align-items: center;
   justify-content: center;
   font-size: 24rpx;
+  z-index: 10;
 }
 
+.photo-add-btn {
+  width: 180rpx;
+  height: 210rpx;
+  border: 2rpx dashed #ddd;
+  background: #f8f9fa;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 60rpx;
+  color: #999;
+  border-radius: 8rpx;
+}
+
+/* 标签系统 */
 .tag-list {
   display: flex;
   flex-wrap: wrap;
   gap: 16rpx;
 }
 .tag-item {
-  padding: 8rpx 24rpx;
-  background: #f3f3f3;
+  padding: 10rpx 28rpx;
+  background: #f3f4f6;
   color: #666;
   border-radius: 30rpx;
   font-size: 24rpx;
+  transition: all 0.2s;
 }
 .tag-item.active {
-  background: #e1f5fe;
-  color: #0288d1;
+  background: #e7f7ef;
+  color: #07c160;
+  font-weight: 500;
+}
+
+/* 保存按钮 */
+.footer {
+  margin-top: 60rpx;
+  padding-bottom: 20rpx;
+}
+
+.save-btn {
+  width: 100%;
+  background: linear-gradient(135deg, #07c160 0%, #06ae56 100%) !important;
+  color: #fff;
+  border-radius: 40rpx;
+  font-size: 32rpx;
+  font-weight: 600;
+  border: none;
+  box-shadow: 0 10rpx 30rpx rgba(7, 193, 96, 0.2);
 }
