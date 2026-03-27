@@ -1,0 +1,38 @@
+.container {
+  padding: 30rpx;
+  background: #f8f8f8;
+  min-height: 100vh;
+}
+
+.section {
+  background: #fff;
+  padding: 30rpx;
+  margin-bottom: 20rpx;
+  border-radius: 16rpx;
+}
+
+.info-item {
+  display: flex;
+  align-items: center;
+  margin-bottom: 10rpx;
+}
+
+.label {
+  font-size: 28rpx;
+  color: #666;
+  width: 120rpx;
+}
+
+.value {
+  font-size: 28rpx;
+  color: #333;
+  flex: 1;
+}
+
+.footer {
+  margin-top: 40rpx;
+}
+
+.save-btn {
+  width: 100%;
+}

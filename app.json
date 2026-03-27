@@ -1,7 +1,9 @@
-{
-  "pages": [
-    "pages/index/index",
-    "pages/me/me"
+"pages": [
+  "pages/index/index",
+  "pages/me/me",
+  "pages/detail/detail"
+],
+    "pages/detail/detail"
   ],
   "window": {
     "backgroundTextStyle": "light",
