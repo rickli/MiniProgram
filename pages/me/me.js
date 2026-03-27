@@ -13,5 +13,13 @@ Page({
     this.setData({
       records
     })
+  },
+
+  previewImage(e) {
+    const { current, urls } = e.currentTarget.dataset
+    wx.previewImage({
+      current,
+      urls
+    })
   }
 })

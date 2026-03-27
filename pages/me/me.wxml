@@ -1,24 +1,44 @@
-<!--pages/me/me.wxml-->
-<view class="container">
-  <view class="header">
-    <text class="title">历史记录</text>
-    <text class="count" wx:if="{{records.length > 0}}">共 {{records.length}} 次</text>
+<view class="timeline-container">
+  <view class="timeline-line"></view>
+  
+  <view class="record-item" wx:for="{{records}}" wx:key="id">
+    <!-- 轴点 -->
+    <view class="timeline-dot {{index === 0 ? 'active' : ''}}"></view>
+    
+    <!-- 内容卡片 -->
+    <view class="content-card">
+      <view class="card-header">
+        <text class="time">{{item.time}}</text>
+        <text class="mood">{{item.mood}}</text>
+      </view>
+      
+      <view class="note-box" wx:if="{{item.note}}">
+        <text class="note-text">{{item.note}}</text>
+      </view>
+      
+      <view class="photo-preview" wx:if="{{item.photos.length > 0}}">
+        <image 
+          wx:for="{{item.photos}}" 
+          wx:for-item="photo" 
+          wx:key="*this" 
+          src="{{photo}}" 
+          mode="aspectFill"
+          class="preview-img"
+          bindtap="previewImage"
+          data-current="{{photo}}"
+          data-urls="{{item.photos}}"
+        ></image>
+      </view>
+      
+      <view class="card-footer">
+        <view class="location">
+          <text class="icon-loc">📍</text>
+          <text class="addr-text">已记录位置</text>
+        </view>
+        <view class="tags">
+          <text class="tag" wx:for="{{item.tags}}" wx:for-item="tag" wx:key="*this">#{{tag}}</text>
+        </view>
+      </view>
+    </view>
   </view>
-
-  <scroll-view class="record-list" scroll-y="true">
-    <view class="record-item" wx:for="{{records}}" wx:key="id">
-      <view class="item-header">
-        <text class="item-time">{{item.time}}</text>
-        <view class="item-badge">已打卡</view>
-      </view>
-      <view class="item-content">
-        <text class="item-loc">经度: {{item.longitude}}</text>
-        <text class="item-loc">纬度: {{item.latitude}}</text>
-      </view>
-    </view>
-
-    <view class="empty-state" wx:if="{{records.length === 0}}">
-      <text class="empty-tip">暂无记录，快去首页打卡吧！</text>
-    </view>
-  </scroll-view>
 </view>

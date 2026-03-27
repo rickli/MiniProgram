@@ -1,81 +1,87 @@
-/* pages/me/me.wxss */
-.container {
-  display: flex;
-  flex-direction: column;
-  padding: 30rpx;
-  background-color: #f7f7f7;
+.timeline-container {
+  padding: 40rpx 30rpx;
+  position: relative;
+  min-height: 100vh;
+  background: #f8f8f8;
 }
-
-.header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin-bottom: 30rpx;
+.timeline-line {
+  position: absolute;
+  left: 55rpx;
+  top: 40rpx;
+  bottom: 40rpx;
+  width: 2rpx;
+  background: #eee;
 }
-
-.title {
-  font-size: 36rpx;
-  font-weight: bold;
-}
-
-.count {
-  font-size: 24rpx;
-  color: #888;
-}
-
-.record-list {
-  flex: 1;
-}
-
 .record-item {
-  background-color: #fff;
-  border-radius: 12rpx;
-  padding: 30rpx;
-  margin-bottom: 20rpx;
-  box-shadow: 0 4rpx 12rpx rgba(0, 0, 0, 0.05);
+  display: flex;
+  margin-bottom: 40rpx;
+  position: relative;
 }
-
-.item-header {
+.timeline-dot {
+  width: 16rpx;
+  height: 16rpx;
+  background: #ddd;
+  border-radius: 50%;
+  border: 6rpx solid #fff;
+  z-index: 1;
+  margin-top: 20rpx;
+  margin-left: 12rpx;
+}
+.timeline-dot.active {
+  background: #07c160;
+}
+.content-card {
+  flex: 1;
+  margin-left: 30rpx;
+  background: #fff;
+  border-radius: 16rpx;
+  padding: 24rpx;
+  box-shadow: 0 4rpx 12rpx rgba(0,0,0,0.05);
+}
+.card-header {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 16rpx;
+}
+.time {
+  font-size: 24rpx;
+  color: #999;
+}
+.mood {
+  font-size: 32rpx;
+}
+.note-text {
+  font-size: 28rpx;
+  color: #333;
+  line-height: 1.6;
+}
+.photo-preview {
+  display: flex;
+  gap: 10rpx;
+  margin-top: 16rpx;
+}
+.preview-img {
+  width: 120rpx;
+  height: 120rpx;
+  border-radius: 8rpx;
+}
+.card-footer {
+  margin-top: 20rpx;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-bottom: 20rpx;
-  border-bottom: 1rpx solid #eee;
-  padding-bottom: 15rpx;
 }
-
-.item-time {
-  font-size: 30rpx;
-  color: #333;
-  font-weight: 500;
+.location {
+  display: flex;
+  align-items: center;
+  font-size: 22rpx;
+  color: #07c160;
 }
-
-.item-badge {
+.tag {
   font-size: 20rpx;
-  background-color: #07c160;
-  color: #fff;
-  padding: 4rpx 12rpx;
-  border-radius: 4rpx;
-}
-
-.item-content {
-  display: flex;
-  flex-direction: column;
-}
-
-.item-loc {
-  font-size: 26rpx;
-  color: #666;
-  margin-top: 10rpx;
-}
-
-.empty-state {
-  display: flex;
-  justify-content: center;
-  padding-top: 200rpx;
-}
-
-.empty-tip {
-  color: #999;
-  font-size: 28rpx;
+  color: #0288d1;
+  background: #e1f5fe;
+  padding: 2rpx 10rpx;
+  border-radius: 6rpx;
+  margin-left: 8rpx;
 }
