@@ -29,27 +29,12 @@ Page({
         const { latitude, longitude } = res
         const time = util.formatTime(new Date())
         
-        const newRecord = {
-          id: Date.now(),
-          time,
-          latitude: latitude.toFixed(6),
-          longitude: longitude.toFixed(6)
-        }
-
-        // 保存记录
-        const records = wx.getStorageSync('PUNCH_RECORDS') || []
-        records.unshift(newRecord)
-        wx.setStorageSync('PUNCH_RECORDS', records)
-
-        wx.showToast({
-          title: '打卡成功',
-          icon: 'success'
+        // 跳转到详情页，携带基础参数
+        wx.navigateTo({
+          url: `/pages/detail/detail?time=${time}&lat=${latitude}&lon=${longitude}`
         })
 
-        this.setData({
-          lastRecord: newRecord,
-          loading: false
-        })
+        this.setData({ loading: false })
       },
       fail: (err) => {
         console.error('获取位置失败', err)
