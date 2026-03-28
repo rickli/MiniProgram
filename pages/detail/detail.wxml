@@ -1,3 +1,10 @@
+<wxs module="utils">
+module.exports = {
+  includes: function(arr, item) {
+    return arr.indexOf(item) !== -1;
+  }
+}
+</wxs>
 <view class="page-bg">
   <view class="diary-card">
     <!-- 顶部沉浸式区域 -->
@@ -59,7 +66,7 @@
           <view 
             wx:for="{{presetTags}}" 
             wx:key="*this"
-            class="diary-tag {{selectedTags.includes(item) ? 'active' : ''}}"
+            class="diary-tag {{utils.includes(selectedTags, item) ? 'active' : ''}}"
             bindtap="toggleTag"
             data-tag="{{item}}"
           >
